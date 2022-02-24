@@ -15,6 +15,7 @@ class PostController extends Controller
      */
     public function index(PostModel $post)
     {
-        return $post->get();
+        // return $post->get();
+        return view('home/index')->with(['posts' => $post->getByLimit()]);
     }
 }
