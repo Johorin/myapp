@@ -26,3 +26,6 @@ Route::get('/posts/create', 'PostController@create');
 
 // 「/posts」にPOSTメソッドが来たらContorollerのstoreメソッドを実行
 Route::post('/posts', 'PostController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
