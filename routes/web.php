@@ -20,3 +20,9 @@ Route::get('/', 'PostController@index');
 // Route::get('/', function() {
 //     return view('home/index');
 // });
+
+// 「/posts/create」にGETメソッドが来たらControllerのcreateメソッドを実行
+Route::get('/posts/create', 'PostController@create');
+
+// 「/posts」にPOSTメソッドが来たらContorollerのstoreメソッドを実行
+Route::post('/posts', 'PostController@store');
