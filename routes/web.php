@@ -11,8 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/posts', 'PostController@index');
+Route::get('/', 'PostController@index');
+
+// Route::get('/', function() {
+//     return view('home/index');
+// });
+
+// 「/posts/create」にGETメソッドが来たらControllerのcreateメソッドを実行
+Route::get('/posts/create', 'PostController@create');
+
+// 「/posts」にPOSTメソッドが来たらContorollerのstoreメソッドを実行
+Route::post('/posts', 'PostController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
