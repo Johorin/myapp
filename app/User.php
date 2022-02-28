@@ -37,4 +37,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    // Postsテーブルに対するリレーション
+
+    //「1対多」の関係なので'posts'と複数形に
+    public function posts()   
+    {
+        return $this->hasMany('App\PostModel');
+    }
+    
+    // Likesテーブルに対するリレーション
+
+    //「1対多」の関係なので'likes'と複数形に
+    public function likes()   
+    {
+        return $this->hasMany('App\Likes');
+    }
 }
