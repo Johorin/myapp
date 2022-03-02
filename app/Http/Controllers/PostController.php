@@ -36,8 +36,6 @@ class PostController extends Controller
         $insertLikes = app()->make('App\Http\Controllers\LikesController');
         $insertLikes->insertLikes($request->user()->id);
         
-        
-        
         // 追加でlikes_idをpostsテーブルに保存
         // $input += ['likes_id' => $request->like()->id];
         $input += ['likes_id' => Auth::id()];

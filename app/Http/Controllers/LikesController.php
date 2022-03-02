@@ -21,6 +21,7 @@ class LikesController extends Controller
     // }
     public function insertLikes($user_id)
     {
+        //likesテーブルに保存する内容
         $input = [
             'user_id' => $user_id,
             'posts_id' => Auth::id(),
