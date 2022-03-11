@@ -30,15 +30,10 @@ class PostController extends Controller
     {
         $input = $request['post'];
         // 追加でuser_idをpostsテーブルに保存
-        $input += ['user_id' => $request->user()->id];
+        $input += ['user_id' => Auth::id()];
+        // 追加でnum_likesをpostsテーブルに保存
+        $input += ['num_likes' => mt_rand(3000, 50000)];
         
-        // LikesControllerのinsertLikesメソッドを呼び出す
-        $insertLikes = app()->make('App\Http\Controllers\LikesController');
-        $insertLikes->insertLikes($request->user()->id);
-        
-        // 追加でlikes_idをpostsテーブルに保存
-        // $input += ['likes_id' => $request->like()->id];
-        $input += ['likes_id' => Auth::id()];
         $post->fill($input)->save();
         return redirect('/');
     }

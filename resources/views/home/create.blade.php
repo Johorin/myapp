@@ -5,10 +5,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>SELF-SUFFICIENT BLOG</title>
     </head>
     <body>
-        <h1>SELF-SUFFICIENT BLOG</h1>
         <form action="/posts" method="POST">
             @csrf
             <div class="body">
