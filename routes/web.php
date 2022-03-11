@@ -44,3 +44,9 @@ Route::post('/posts', 'PostController@store')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+Route::get('/uploadimage', function() {
+    return view('upload_image');
+});
+
+Route::post('/upload', 'UploadImageController@store');

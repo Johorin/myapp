@@ -17,11 +17,11 @@ class PostModel extends Model
         return $this->orderBy('updated_at', 'DESC')->take($limit_count)->get();
     }
     
-    // bodyレコード、user_id、likes_idのLaravel上でのfillを可能にする
+    // bodyレコード、user_id、num_likesのLaravel上でのfillを可能にする
     protected $fillable = [
         'body',
         'user_id',
-        'likes_id',
+        'num_likes',
     ];
     
     // Userテーブルに対するリレーション
