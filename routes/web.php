@@ -50,3 +50,6 @@ Route::get('/uploadimage', function() {
 });
 
 Route::post('/upload', 'UploadImageController@store');
+
+//プロフィール編集画面へのルーティング
+Route::get('/edit', 'ProfileController@index');

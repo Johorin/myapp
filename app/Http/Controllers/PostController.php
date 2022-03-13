@@ -23,7 +23,7 @@ class PostController extends Controller
     
     public function create()
     {
-        return view('home/create');
+        return view('create/create');
     }
     
     public function store(PostRequest $request, PostModel $post)
