@@ -31,7 +31,7 @@
                 </div>
                 <div class="change_bio">
                     <h2>一言コメント</h2>
-                    @if($bio == NULL)
+                    @if({{$bio}})
                         <textarea name="edit[bio]" placeholder="一言コメントを入力"></textarea>
                     @else
                         <textarea name="edit[bio]">{{Auth::user()->bio}}</textarea>
