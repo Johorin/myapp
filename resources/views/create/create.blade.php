@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="post_example__body">
-                    <textarea name="post[body]" placeholder="投稿する内容を入力"></textarea>
+                    <textarea name="post[body]" placeholder="投稿する内容を入力" class="textarea-text"></textarea>
                 </div>
             </div>
             <div class="botton">

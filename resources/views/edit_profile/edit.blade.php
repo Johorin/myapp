@@ -19,7 +19,7 @@
         <!--    <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>-->
         <!--</form>-->
         
-        <form action="/edit" method="POST">
+        <form action="/editsave" method="POST">
             @csrf
             <div class="change_content">
                 <div class="change_user_name">
@@ -36,6 +36,15 @@
                     @else
                         <textarea name="edit[bio]" placeholder="一言コメントを入力"></textarea>
                     @endif
+                </div>
+            </div>
+            <div class="botton">
+                <div class="botton__back">
+                    <a href="/">⬅︎ BACK</a>
+                </div>
+                <div class="botton__save">
+                    <input type="submit" value="POST"/>
+                    <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
                 </div>
             </div>
         </form>

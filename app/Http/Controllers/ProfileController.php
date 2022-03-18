@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -17,5 +19,15 @@ class ProfileController extends Controller
         } else {    // 一言コメントが設定されていなければそのままeditビューへ
             return view('edit_profile.edit');
         }
+    }
+    
+    public function store(PostRequest $request, Profile $profile)
+    {
+        $input = $request['edit'];
+        //追加でuser_idをprofileテーブルに保存
+        $input += ['user_id' => Auth::id()];
+        
+        $profile->fill($input)->save();
+        return redirect('/');
     }
 }
