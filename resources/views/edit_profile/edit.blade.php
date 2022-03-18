@@ -31,10 +31,10 @@
                 </div>
                 <div class="change_bio">
                     <h2>一言コメント</h2>
-                    @if({{$bio}})
-                        <textarea name="edit[bio]" placeholder="一言コメントを入力"></textarea>
-                    @else
+                    @if(isset($bio))
                         <textarea name="edit[bio]">{{Auth::user()->bio}}</textarea>
+                    @else
+                        <textarea name="edit[bio]" placeholder="一言コメントを入力"></textarea>
                     @endif
                 </div>
             </div>
