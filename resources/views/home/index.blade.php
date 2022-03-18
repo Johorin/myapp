@@ -19,7 +19,7 @@
             <div class='timeline__post'>
                 <div class="image_and_userName">
                     <div class="timeline__post--profileImage">
-                        <p>プロフィール画像</p>
+                        <img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">
                     </div>
                     <div class="timeline__post--user_name">
                         <p>{{Auth::user()->name}}</p>

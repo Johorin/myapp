@@ -7,19 +7,15 @@
     <head>
         <meta charset="utf-8">
         <title>SELF-SUFFICIENT BLOG</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- Reset CSS -->
+        <link href="{{asset('/css/reset.css')}}" rel="stylesheet">
+        <!-- CSSの読み込み -->
+        <link href="{{asset('/css/edit.css')}}" rel="stylesheet">
     </head>
     <body>
-        <!--<form action="/posts" method="POST">-->
-        <!--    @csrf-->
-        <!--    <div class="body">-->
-        <!--        <textarea name="post[body]" placeholder="投稿する内容を入力"></textarea>-->
-        <!--    </div>-->
-        <!--    <div class="back">[<a href="/">back</a>]</div>-->
-        <!--    <input type="submit" value="POST"/>-->
-        <!--    <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>-->
-        <!--</form>-->
-        
-        <form action="/editsave" method="POST">
+        <form action="/editsave" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="change_content">
                 <div class="change_user_name">
@@ -28,6 +24,10 @@
                 </div>
                 <div class="change_profile_image">
                     <h2>プロフィール画像</h2>
+                    <div class="form-group">
+                        <img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">
+                        <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
                 </div>
                 <div class="change_bio">
                     <h2>一言コメント</h2>
@@ -43,8 +43,9 @@
                     <a href="/">⬅︎ BACK</a>
                 </div>
                 <div class="botton__save">
-                    <input type="submit" value="POST"/>
-                    <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                    <input type="submit" value="SAVE"/>
+                    <p class="profile_image__error" style="color:red">{{ $errors->first('image') }}</p>
+                    <p class="bio__error" style="color:red">{{ $errors->first('edit.bio') }}</p>
                 </div>
             </div>
         </form>
