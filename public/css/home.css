@@ -4,11 +4,16 @@ body {
 
 .timeline {
   width: calc(100% - 200px);
-  height: 100%;
+  height: calc(100vh - 48px);
   margin: 0 0 0 200px;
   padding: 50px 0 100px 0;
-  background: url("../../storage/app/public/image/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg") center center/cover no-repeat;
+  /*background: url("../../storage/app/public/image/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg") center center/cover no-repeat;*/
+  background: url("3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg") center center/cover no-repeat;
   background-attachment: fixed;
+}
+
+.image_and_userName {
+  display: flex;
 }
 
 .timeline__post {
@@ -45,6 +50,7 @@ body {
   position: fixed;
   background-color: blue;
   border-radius: 100%;
+  border: 1px solid black;
 }
 
 .circle .fa-plus {

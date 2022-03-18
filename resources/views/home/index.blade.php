@@ -17,8 +17,13 @@
         <div class='timeline'>
             @foreach ($posts as $post)
             <div class='timeline__post'>
-                <div class="timeline__post--profileImage">
-                    <p>プロフィール画像</p>
+                <div class="image_and_userName">
+                    <div class="timeline__post--profileImage">
+                        <p>プロフィール画像</p>
+                    </div>
+                    <div class="timeline__post--user_name">
+                        <p>{{Auth::user()->name}}</p>
+                    </div>
                 </div>
                 <p class='body'>{{ $post->body }}</p>
                 <div class="timeline__post--good">
@@ -36,13 +41,13 @@
         <!-- 特に次のクラスをCSSでレスポンシブ化 -->
         <div class="naviMenu">
             <div class="naviMenu__home">
-                <a href="#"><i class="fa-solid fa-house fa-5x"></i></a>
+                <a href="/"><i class="fa-solid fa-house fa-5x"></i></a>
             </div>
             <div class="naviMenu__search">
-                <a href="#"><i class="fa-solid fa-magnifying-glass fa-5x"></i></a>
+                <a href="/search"><i class="fa-solid fa-magnifying-glass fa-5x"></i></a>
             </div>
             <div class="naviMenu__profile">
-                <a href="#"><i class="fa-solid fa-user fa-5x"></i></a>
+                <a href="/edit"><i class="fa-solid fa-user fa-5x"></i></a>
             </div>
         </div>
     </body>
