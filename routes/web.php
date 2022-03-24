@@ -55,4 +55,4 @@ Route::post('/upload', 'UploadImageController@store');
 Route::get('/edit', 'ProfileController@index');
 
 //プロフィール編集内容の保存用ルーティング
-Route::post('/editsave', 'ProfileController@store');
+Route::post('/editsave', 'ProfileController@store')->name('editsave');

@@ -54,3 +54,8 @@ body {
 .post_example__profileImage_and_userName {
   display: flex;
 }
+
+.post_example__image_and_userName--profileImage img {
+  width: 50px;
+  height: 50px;
+}

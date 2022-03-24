@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
-use App\Http\Requests\PostRequest;
+use App\User;
+use App\Http\Requests\EditRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -21,22 +22,33 @@ class ProfileController extends Controller
         }
     }
     
-    public function store(PostRequest $request, Profile $profile)
+    public function store(EditRequest $request, Profile $profile)
     {
         //初めにログインユーザーの旧プロフィールデータを削除する処理
-        // Profile::table('profile')->truncate();
         Profile::where('id', Auth::id())->delete();
         
-        //次に新しいデータを保存する処理
-        //editリクエストの内容を全て$inputに格納
-        $input = $request['edit'];
-        //$pathに画像のパスを記述
-        $path = $request->file->store('public');    //画像ファイルが生成される&pathにフォルダのパスが記述される
-        //追加でuser_idをprofileテーブルに保存
-        $input += ['user_id' => Auth::id()];
-        //追加でicon_image（画像のパス）をprofileテーブルに保存
-        $input += ['icon_image' => $path];
-        $profile->fill($input)->save();
-        return redirect('/');
+        if ($request->file('file')->isValid([])) {
+            //バリデーションを正常に通過した時の処理
+            //S3へのファイルアップロード処理の時の情報を変数$upload_infoに格納する
+            $upload_info = \Storage::disk('s3')->putFile('/uploadedimage', $request->file('file'), 'public');
+            //S3へのファイルアップロード処理の時の情報が格納された変数$upload_infoを用いてアップロードされた画像へのリンクURLを変数$pathに格納する
+            $path = \Storage::disk('s3')->url($upload_info);
+            
+            $profile->id = Auth::id();
+            $profile->icon_image = $path;
+            $profile->bio = $request['bio'];
+            $profile->user_id = Auth::id();
+            
+            $user = new User();
+            $user->name = $request['user_name'];
+            
+            $profile->save();
+            $user->save();
+            
+            return redirect('/');
+        } else {
+            //バリデーションではじかれた時の処理
+            return redirect('/edit');
+        }
     }
 }
