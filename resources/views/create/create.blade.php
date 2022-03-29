@@ -19,7 +19,7 @@
             <div class="post_example">
                 <div class="post_example__profileImage_and_userName">
                     <div class="post_example__image_and_userName--profileImage">
-                        <p>プロフィール画像</p>
+                        <img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">
                     </div>
                     <div class="post_example__image_and_userName--userName">
                         <p>{{Auth::user()->name}}</p>

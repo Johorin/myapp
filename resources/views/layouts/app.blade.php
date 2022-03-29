@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Reset CSS -->
+    <link href="{{asset('css/reset.css')}}" rel="stylesheet">
+    <!-- CSSの読み込み -->
+    <link href="{{asset('css/home.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
