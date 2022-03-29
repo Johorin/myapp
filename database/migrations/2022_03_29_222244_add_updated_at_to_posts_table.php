@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropColumnLikesIdColumn extends Migration
+class AddUpdatedAtToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DropColumnLikesIdColumn extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('likes_id');
+        Schema::table('profile', function (Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -25,7 +25,7 @@ class DropColumnLikesIdColumn extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('profile', function (Blueprint $table) {
             //
         });
     }
