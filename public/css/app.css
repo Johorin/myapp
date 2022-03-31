@@ -75,6 +75,10 @@ body {
   background-color: #f8fafc;
 }
 
+main {
+  margin-top: 100px;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -20199,3 +20203,11 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
+nav.navbar {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 50;
+}

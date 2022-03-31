@@ -5,6 +5,7 @@
 
 body {
   height: 100vh;
+  margin-top: -55px;
 }
 
 .timeline {
@@ -60,4 +61,31 @@ body {
     background-color: white;
     border-radius: 15px;
     border: solid 1px black;
+}
+
+.change_profile_image {
+  margin-top: 20px;
+}
+
+.change_bio {
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-group__image {
+  margin-left: 50px;
+  margin-right: 30px;
+}
+
+.change_user_name textarea {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.change_bio textarea {
+  margin-top: 10px;
+  margin-left: 20px;
 }
