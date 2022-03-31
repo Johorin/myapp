@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    // protected $table = 'Users';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +37,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    // Postsテーブルに対するリレーション
+
+    //「1対多」の関係なので'posts'と複数形に
+    public function posts()   
+    {
+        return $this->hasMany('App\PostModel');
+    }
+    
+    // Likesテーブルに対するリレーション
+
+    //「1対多」の関係なので'likes'と複数形に
+    public function likes()   
+    {
+        return $this->hasMany('App\Likes');
+    }
+    
+    // profileテーブルに対するリレーション
+    
+    // 1対1の関係
+    public function profile()
+    {
+        return $this->belongsTo('App\Profile');
+    }
 }
