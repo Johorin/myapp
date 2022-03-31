@@ -53,4 +53,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Likes');
     }
+    
+    // profileテーブルに対するリレーション
+    
+    // 1対1の関係
+    public function profile()
+    {
+        return $this->belongsTo('App\Profile');
+    }
 }

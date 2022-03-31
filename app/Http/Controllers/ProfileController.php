@@ -14,11 +14,15 @@ class ProfileController extends Controller
         // $profile = Profile::all();
         // return view('edit_profile.edit')->with('profile_data', $profile);
         $bio_exsist = Profile::where('bio')->first();
+        
+        $profiles = Profile::all();
+        
         if ($bio_exsist !== null){ // 一言コメントが設定されていればそれを取得してeditビューへ
-            $bio = Profile::where('bio')->get();
-            return view('edit_profile.edit')->with('bio', $bio);
+            // $bio = Profile::where('bio')->get();
+            $bio = Profile::all();
+            return view('edit_profile.edit')->with(['bio' => $bio])->with(['profile' => $profiles]);
         } else {    // 一言コメントが設定されていなければそのままeditビューへ
-            return view('edit_profile.edit');
+            return view('edit_profile.edit')->with(['profile' => $profiles]);
         }
     }
     
@@ -39,7 +43,8 @@ class ProfileController extends Controller
             $profile->bio = $request['bio'];
             $profile->user_id = Auth::id();
             
-            $user = new User();
+            // $user = new User();
+            $user = Auth::user();
             $user->name = $request['user_name'];
             
             $profile->save();

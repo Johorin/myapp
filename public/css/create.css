@@ -1,15 +1,17 @@
 body {
   height: 100vh;
+  margin-top: 48px;
+  padding-top: 50px;
   background: url("3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg") center center/cover no-repeat;
 }
 
 .post_example {
   background-color: #fff;
   width: 600px;
-  height: 150px;
+  height: 126px;
   margin: 0 auto;
   margin-top: 20px;
-  padding: 30px;
+  padding: 20px;
   border: solid 1px black;
   border-radius: 20px;
   position: relative;
@@ -82,4 +84,20 @@ body {
 .post_example__image_and_userName--profileImage img {
   width: 50px;
   height: 50px;
+}
+
+.post_example__image_and_userName--userName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.post_example__body {
+  position: absolute;
+  top: 56px;
+  left: 90px;
+}
+
+.textarea-text {
+  width: 470px;
 }

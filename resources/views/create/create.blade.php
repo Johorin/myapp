@@ -19,7 +19,9 @@
             <div class="post_example">
                 <div class="post_example__profileImage_and_userName">
                     <div class="post_example__image_and_userName--profileImage">
-                        <img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">
+                        @foreach ($profile as $data)
+                        <img src="{{ $data->icon_image }}">
+                        @endforeach
                     </div>
                     <div class="post_example__image_and_userName--userName">
                         <p>{{Auth::user()->name}}</p>

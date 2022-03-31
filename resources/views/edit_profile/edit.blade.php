@@ -26,14 +26,23 @@
                     <div class="change_profile_image">
                         <h2>プロフィール画像</h2>
                         <div class="form-group">
-                            <img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">
-                            <input type="file" class="form-control" name="file">
+                            <!--<img src="{{ asset('storage/3hkPBc3S7F3oylGmAgo4GxNGQObWTSZHWmyq5JMV.jpg') }}">-->
+                            @foreach ($profile as $data)
+                            <div class="form-group__image">
+                                <img src="{{ $data->icon_image }}">
+                            </div>
+                            @endforeach
+                            <div class="form-group__file">
+                                <input type="file" class="form-control" name="file">
+                            </div>
                         </div>
                     </div>
                     <div class="change_bio">
                         <h2>一言コメント</h2>
                         @if(isset($bio))
-                            <textarea name="bio">{{Auth::user()->bio}}</textarea>
+                            @foreach ($bio as $data)
+                            <textarea name="bio">{{$data->bio}}</textarea>
+                            @endforeach
                         @else
                             <textarea name="bio" placeholder="一言コメントを入力"></textarea>
                         @endif

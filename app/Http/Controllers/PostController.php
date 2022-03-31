@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PostModel;
+use App\Profile;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,12 +19,17 @@ class PostController extends Controller
     public function index(PostModel $post)
     {
         // return $post->get();
-        return view('home/index')->with(['posts' => $post->getByLimit()]);
+        // return view('home/index')->with(['posts' => $post->getByLimit()]);
+        $profile = Profile::all();
+        
+        return view('home/index')->with(['posts' => $post->getByLimit()])->with(['profile' => $profile]);
     }
     
     public function create()
     {
-        return view('create/create');
+        $profile = Profile::all();
+        
+        return view('create/create')->with(['profile' => $profile]);
     }
     
     public function store(PostRequest $request, PostModel $post)
