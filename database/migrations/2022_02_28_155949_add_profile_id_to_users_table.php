@@ -14,7 +14,7 @@ class AddProfileIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('profile_id')->unsigned();    //unsigned()型で定義
+            $table->bigInteger('profile_id')->unsigned()->nullable();    //unsigned()型で定義
             //'profile_id' は 'profileテーブル' の 'id' を参照する外部キーです
         });
     }

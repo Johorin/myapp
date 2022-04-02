@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUpdatedAtToPostsTable extends Migration
+class CreateProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddUpdatedAtToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('profile', function (Blueprint $table) {
+        Schema::create('profile', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('icon_image');
+            $table->text('bio');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();    //unsigned()型で定義
         });
     }
 
@@ -25,8 +29,6 @@ class AddUpdatedAtToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('profile', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('profile');
     }
 }

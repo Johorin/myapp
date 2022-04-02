@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToPostsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddUserIdToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('body');
+            $table->integer('num_likes')->comment('いいねの数');
+            $table->timestamps();
             $table->bigInteger('user_id')->unsigned();    //unsigned()型で定義
-            //'user_id' は 'usersテーブル' の 'id' を参照する外部キーです
         });
     }
 
@@ -26,8 +29,6 @@ class AddUserIdToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 }
